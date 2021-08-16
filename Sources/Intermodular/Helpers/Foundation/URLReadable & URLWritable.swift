@@ -97,6 +97,10 @@ extension String: URLReadable, URLWritable {
     }
     
     public func write(to url: URL, atomically: Bool) throws {
+        #if os(tvOS)
+        try write(toFile: url.path, atomically: atomically, encoding: .utf8)
+        #else
         try (self as NSString).write(to: url, atomically: atomically)
+        #endif
     }
 }

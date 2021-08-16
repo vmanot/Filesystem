@@ -6,6 +6,8 @@ import Swallow
 import SwiftUI
 import UniformTypeIdentifiers
 
+@available(tvOS, unavailable)
+@available(watchOS, unavailable)
 public struct TextFileDocument: Codable, FileDocument, Hashable, Initiable {
     public static var readableContentTypes = [UTType.plainText]
     
